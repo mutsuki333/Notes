@@ -1,22 +1,20 @@
-import 'babel-polyfill'
+//import 'babel-polyfill'
 
 import Vue from 'vue'
 import App from './App.vue'
 
-import ElementUI from 'element-ui'
-import local from 'element-ui/lib/locale/lang/zh-TW'
+import lang from 'element-ui/lib/locale/lang/en'
+import locale from 'element-ui/lib/locale'
 import './theme.scss'
 
-Vue.use(ElementUI, {local});
+// configure language
+locale.use(lang)
 
-import axios from 'axios'
+import { Button, Select, Option } from 'element-ui';
+Vue.use(Button);Vue.use(Select);Vue.use(Option)
 
-//axios.defaults.baseURL = "ENTER HERE/";
-Vue.prototype.$http = axios;
-
-
-Vue.config.productionTip = false;
+Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),
-}).$mount('#app');
+}).$mount('#app')

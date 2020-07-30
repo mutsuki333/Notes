@@ -1,21 +1,26 @@
 <template lang="pug">
 #app
-  h1 {{title}}
+  el-button(type="success" round) test
+  el-select
+    el-option(label="v1" value="v1")
+    el-option(label="v1" value="v1")
+    el-option(label="v1" value="v1")
 </template>
 
 <script>
 
 export default {
-  name: 'App',
-  data:function () {
-    return{
-      title:"Start here"
-    }
-  }
+  name: 'App'
 }
 </script>
 
-<style lang="sass" scoped>
-.star
-  color: red
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 </style>

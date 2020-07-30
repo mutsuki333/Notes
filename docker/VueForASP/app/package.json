@@ -1,13 +1,16 @@
 {
-  "name": "doc_upload_type_setup",
+  "name": "tvue",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "pre-build": "rm -rf dist/*",
+    "vue-build": "vue-cli-service build --no-clean",
+    "move": "mv dist/js/app.js dist/main.js; mv dist/css/app.css dist/main.css; mv dist/dist/* dist",
+    "clean": "rm -r dist/favicon.ico dist/index.html dist/css dist/js dist/dist",
+    "build": "yarn pre-build; yarn vue-build; yarn move; yarn clean",
     "lint": "vue-cli-service lint",
-    "parcel-watch": "parcel watch --hmr-port 40163 ./src/main.js --public-url .",
-    "parcel-build": "parcel build ./src/main.js --public-url ."
+    "watch": "parcel watch ./src/main.js --public-url ."
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -17,9 +20,7 @@
     "element-ui": "^2.13.2",
     "parcel": "^1.12.4",
     "pug": "^3.0.0",
-    "pug-loader": "^2.4.0",
     "pug-plain-loader": "^1.0.0",
-    "sass-loader": "^9.0.2",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -29,26 +30,8 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "sass": "^1.26.10",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+  }
 }
