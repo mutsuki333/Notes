@@ -1,5 +1,6 @@
 
 * [Home](/)
+* [Notes](/notes/)
 * [Docker](/docker/ "docker settings")
-* [Python](/server/ "python settings")
-* [Other Notes](/notes/)
+* [Project Templates](project_template/)
+* [Python](/python/ "python settings")

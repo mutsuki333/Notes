@@ -1,6 +1,7 @@
 # Nginx SPA
 
-> An dockerized server to serve local docs and spa
+> An dockerized server to serve local docs and spa  
+> path: `/docker/nginx_spa`
 
 ## Config
 

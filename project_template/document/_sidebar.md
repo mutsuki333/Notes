@@ -1,0 +1,4 @@
+
+* [Home](/)
+* [Notes](/notes/)
+
