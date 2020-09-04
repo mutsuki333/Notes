@@ -1,6 +1,6 @@
-
-* [Home](/)
-* [Notes](/notes/)
-* [Docker](/docker/ "docker settings")
-* [Project Templates](project_template/)
-* [Python](/python/ "python settings")
+* [Overview]()
+* [Docker](./docker/)
+* [Python](./python/)
+* [Cheat Sheets](./cheat_sheets/)
+* [Notes](./notes/)
+* [Project Template](./project_template/)
