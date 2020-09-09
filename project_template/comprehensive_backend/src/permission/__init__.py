@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-# @file       auth/permission.py
+# @file       permission/__init__.py
 # @brief      determin if a user has permission
 # @date       2020
 # @author     Evan
@@ -24,16 +24,21 @@ def get_roles():
     )
     return [ row.role.name for row in user_roles ]
 
-def _has_role(role):
+def has_role(role):
+    if current_user.is_anonymous: return False
+    if not role in get_roles(): return False
+    return True
+
+def _require_role(role):
     if current_user.is_anonymous: abort(ForbiddenRequest)
     if not role in get_roles(): abort(ForbiddenRequest)
     return True
 
-def has_role(role):
+def require_role(role):
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
-            _has_role(role)
+            _require_role(role)
             return func(*args, **kwargs)
         return wrapper
     return decorator
@@ -46,13 +51,13 @@ def is_in_group(group):
 def root(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
-        _has_role('root')
+        _require_role('root')
         return func(*args, **kwargs)
     return wrapper
 
 def admin(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
-        _has_role('admin')
+        _require_role('admin')
         return func(*args, **kwargs)
     return wrapper

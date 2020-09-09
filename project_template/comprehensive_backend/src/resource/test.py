@@ -17,7 +17,7 @@ from playhouse.shortcuts import model_to_dict, update_model_from_dict
 
 from src import abort, make_response
 from src.error import Notfound
-from src.auth import admin, has_role, root
+from src import permission
 
 from src.models.Auth import User
 
@@ -37,10 +37,11 @@ class TestLogout(Resource):
         return make_response("ok")
 
 class TestRole(Resource):
-    @has_role('admin')
+    @permission.require_role('admin')
     def get(self):
+        print()
         return make_response("ok")
     
-    @root
+    @permission.root
     def post(self):
         return {'Role': "root"}
