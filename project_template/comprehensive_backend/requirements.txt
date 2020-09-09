@@ -1,0 +1,8 @@
+flask
+flask-login
+flask-restful
+flask_cors
+passlib
+peewee
+requests
+uwsgi
