@@ -57,7 +57,7 @@ def accept(name):
     return True
 
 def generate_sidebar(path, entries):
-    sidebar_file = open(os.path.join(path,'_sidebar.md'), 'w')
+    sidebar_file = open(os.path.join(path,'_sidebar.md'), 'w', encoding="utf-8")
     for entry in entries:
         sidebar_file.write(entry+'\n')
     sidebar_file.close()
