@@ -12,9 +12,8 @@ if platform.system() == 'Windows':
 
 IGNORE = [
     'vendor',
+    'docs',
     "README.md",
-    "init.py",
-    "index.html"
 ]
 HEADER = [
     "* [Overview]()"
@@ -44,14 +43,16 @@ def make_display_name(name):
 
     return name
 
-def accept(name):
+def accept(name, is_file=False):
     # if is path
     parts = name.split(path_split)
     if len(parts) > 1:
         for part in parts:
             if part in IGNORE: return False
     # if is filename or dir
-    else:    
+    else:
+        if is_file:
+            if os.path.splitext(name)[1] != ".md": return False
         if name in IGNORE: return False
         if name.startswith('.') or name.startswith('_'): return False
     return True
@@ -75,7 +76,7 @@ def scan_dir(path="."):
             if not accept(d): continue
             entries.append("* [{}](./{}/)".format(make_display_name(d), d))
         for f in files:
-            if not accept(f): continue
+            if not accept(f,True): continue
             entries.append("* [{}]({})".format(make_display_name(f), f))
         if len(root.split(path_split)) > 1:
             entries += FOOTER
