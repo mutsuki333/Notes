@@ -13,6 +13,7 @@ if platform.system() == 'Windows':
 IGNORE = [
     'vendor',
     'docs',
+    'assets',
     "README.md",
 ]
 HEADER = [
@@ -43,40 +44,47 @@ def make_display_name(name):
 
     return name
 
-def accept(name, is_file=False):
-    # if is path
-    parts = name.split(path_split)
-    if len(parts) > 1:
-        for part in parts:
-            if part in IGNORE: return False
-    # if is filename or dir
-    else:
-        if is_file:
-            if os.path.splitext(name)[1] != ".md": return False
-        if name in IGNORE: return False
-        if name.startswith('.') or name.startswith('_'): return False
-    return True
-
 def generate_sidebar(path, entries):
     sidebar_file = open(os.path.join(path,'_sidebar.md'), 'w', encoding="utf-8")
     for entry in entries:
         sidebar_file.write(entry+'\n')
     sidebar_file.close()
 
-def scan_dir(path="."):
+def acceptfile(name):
+    if os.path.splitext(name)[1] != ".md": return False
+    if name in IGNORE: return False
+    if name.startswith('.') or name.startswith('_'): return False
+    return True
 
+def acceptdir(root,d):
+    if d in IGNORE: return False
+    # if not acceptroot(root): return False
+    if os.path.exists(os.path.join(root,d,'README.md')): return True
+    return False
+
+def acceptroot(root):
+    parts = root.split(path_split)
+    if len(parts) > 1:
+        for part in parts:
+            if part in IGNORE: return False
+    return True
+
+def scan_dir(path="."):
     for root, dirs, files in os.walk(path):
         entries = []
         if len(root.split(path_split)) == 1:
             entries += HEADER
-        elif not accept(root): continue
+        elif not acceptroot(root): continue
         else:
             entries.append("* [{}]()".format(make_display_name(root.split(path_split)[-1])) )
         for d in dirs:
-            if not accept(d): continue
+            # print(root,d,acceptdir(root,d))
+            if not acceptdir(root,d): 
+                dirs.remove(d)
+                continue
             entries.append("* [{}](./{}/)".format(make_display_name(d), d))
         for f in files:
-            if not accept(f,True): continue
+            if not acceptfile(f): continue
             entries.append("* [{}]({})".format(make_display_name(f), f))
         if len(root.split(path_split)) > 1:
             entries += FOOTER

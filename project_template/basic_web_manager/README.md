@@ -1,29 +1,14 @@
-# basic_web_manager
+# basic Web Manager
 
-## Project setup
+> A web app powered by vue, bulma  
+> Including localization
 
-```bash
-yarn install
-```
+## Dependency
 
-### Compiles and hot-reloads for development
+## Install
 
-```bash
-yarn serve
-```
+## Config
 
-### Compiles and minifies for production
+## Usage
 
-```bash
-yarn build
-```
-
-### Lints and fixes files
-
-```bash
-yarn lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Customize

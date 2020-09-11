@@ -1,3 +1,4 @@
-# My Document 
+# Document
 
-> Start documenting  
+> A startup for document site  
+> path: `/project_template/document`
