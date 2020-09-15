@@ -1,6 +1,7 @@
 import os
 import glob
 import sys
+from urllib.parse import quote
 
 import platform
 
@@ -77,15 +78,17 @@ def scan_dir(path="."):
         elif not acceptroot(root): continue
         else:
             entries.append("* [{}]()".format(make_display_name(root.split(path_split)[-1])) )
+        stop = []
         for d in dirs:
-            # print(root,d,acceptdir(root,d))
             if not acceptdir(root,d): 
-                dirs.remove(d)
+                stop.append(d)
                 continue
-            entries.append("* [{}](./{}/)".format(make_display_name(d), d))
+            entries.append("* [{}](./{}/)".format(make_display_name(d), quote(d)))
+        for d in stop:
+            dirs.remove(d)
         for f in files:
             if not acceptfile(f): continue
-            entries.append("* [{}]({})".format(make_display_name(f), f))
+            entries.append("* [{}]({})".format(make_display_name(f), quote(f)))
         if len(root.split(path_split)) > 1:
             entries += FOOTER
         generate_sidebar(root, entries)
