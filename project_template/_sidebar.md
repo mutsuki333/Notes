@@ -1,8 +1,9 @@
 * [Project Template]()
+* [Go Backend](./go_backend/)
+* [Vue Website](./vue_website/)
 * [Scheduler](./scheduler/)
 * [Document](./document/)
-* [Comprehensive Backend](./comprehensive_backend/)
-* [Basic Web Manager](./basic_web_manager/)
+* [Python Backend](./python_backend/)
 
 <br><br>
 
