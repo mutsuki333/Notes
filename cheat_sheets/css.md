@@ -23,6 +23,18 @@
     margin: auto
 ```
 
+### Image gray scale
+
+```sass
+img#grey
+  opacity: 0.7
+  -webkit-filter: grayscale(100%)
+  -moz-filter: grayscale(100%)
+  -o-filter: grayscale(100%)
+  -ms-filter: grayscale(100%)
+  filter: grayscale(100%)
+```
+
 ### Cursor
 
 ```css
