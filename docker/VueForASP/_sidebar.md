@@ -1,5 +1,0 @@
-* [Vueforasp]()
-
-<br><br>
-
-* [Back](../)

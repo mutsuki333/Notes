@@ -1,5 +1,0 @@
-* [Template]()
-
-<br><br>
-
-* [Back](../)
