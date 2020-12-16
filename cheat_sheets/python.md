@@ -61,3 +61,8 @@ def greet(name):
     print(f"Hello {name}")
 
 ```
+
+## Email
+
+[SO](https://stackoverflow.com/questions/37201250/sending-email-via-gmail-python)
+

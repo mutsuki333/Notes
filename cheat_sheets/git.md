@@ -1,5 +1,44 @@
 # Git Cheat Sheet
 
+## Useful Commands
+
+### Clone with limited history
+
+`git clone --depth <depth> -b <branch> <repo_url>`
+
+### File from other refs
+
+To show files from other refs:
+
+```git
+git show object
+git show $REV:$FILE
+git show somebranch:from/the/root/myfile.txt
+git show HEAD^^^:test/test.py
+```
+
+Or to get it back
+
+```git
+git restore -s <SHA1>     -- afile
+git restore -s somebranch -- afile
+```
+
+### Remove file from history (force)
+
+```git
+git filter-branch --index-filter 'git rm --cache --ignore-unmatch FILENAME' HEAD
+```
+
+### Log diff of file
+
+Will give you a history of all the commits of the given file as well as the diffs for each commit.
+
+```git
+git log -p <filename>
+```
+
+## Others
 
 To selectively merge files from one branch into another branch, run
 

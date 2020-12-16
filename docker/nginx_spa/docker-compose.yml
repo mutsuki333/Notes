@@ -5,8 +5,9 @@ services:
   nginx:
     image: "nginx:latest"
     restart: "always"
+    container_name: "docs"
     volumes:
-      - ../../docs:/usr/share/nginx/html/docs
+      - ../../:/usr/share/nginx/html/docs
       - ./nginx.conf:/etc/nginx/nginx.conf
     ports:
       - "1234:80"
