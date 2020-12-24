@@ -2,6 +2,36 @@
 
 ## Useful Commands
 
+### Ignore files locally
+
+Edit `.git/info/exclude` in the local repo, with the same syntax as .gitignore.
+
+### Push to multiple remotes at once
+
+> Useful as mirrors
+
+1. Clone your repository, or create one fresh and configure it how you would with a single remote as origin.
+
+```git
+git remote add origin git@github.com:[username]/[repository]
+```
+
+2. Set the multiple remote URLs including the one you already set above.
+
+```git
+git remote set-url --add --push origin git@github.com:[username]/[repository]
+git remote set-url --add --push origin git@bitbucket.org:[username]/[repository]
+```
+
+3. To confirm the remote URLs are configured correctly:
+
+```sh
+git remote -v
+origin	git@github.com:[username]/[repository] (fetch)
+origin	git@github.com:[username]/[repository] (push)
+origin	git@bitbucket.org:[username]/[repository] (push)
+```
+
 ### Clone with limited history
 
 `git clone --depth <depth> -b <branch> <repo_url>`
