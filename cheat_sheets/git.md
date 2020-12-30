@@ -54,6 +54,13 @@ git restore -s <SHA1>     -- afile
 git restore -s somebranch -- afile
 ```
 
+### Ignore a tracked file without delete
+
+1. Add all the files, individually or in a folder, that you want to remove from the repo but keep locally to .gitignore.
+2. Execute git rm --cached *put/here/your/file.ext* for each file or git rm --cached folder/\\\* if they are in a folder. (It is /\\\* because you need to escape the \*)
+3. Commit your changes.
+4. Push to remote.
+
 ### Remove file from history (force)
 
 ```git
@@ -66,6 +73,12 @@ Will give you a history of all the commits of the given file as well as the diff
 
 ```git
 git log -p <filename>
+```
+
+### View branch status
+
+```git
+git branch -vv
 ```
 
 ## Others
