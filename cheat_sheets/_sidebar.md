@@ -5,6 +5,7 @@
 * [Css](css.md)
 * [Csharp](csharp.md)
 * [Nginx](nginx.md)
+* [Cmd](cmd.md)
 * [Git](git.md)
 * [Docker](docker.md)
 * [Js](js.md)
