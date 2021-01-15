@@ -10,3 +10,4 @@
 | docker exec -it NAME /bin/bash | Attach to shell               |
 | docker logs --follow           | attach to see log             |
 | docker network prune           | remove unused network         |
+| docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' NAME | get ip of a cantainer|

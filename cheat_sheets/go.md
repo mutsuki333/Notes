@@ -1,5 +1,11 @@
 # Go Cheat Sheet
+## Cmd
 
+### inspect build app 
+`go tool nm ./main | grep XXX`
+### Replace with local module
+`go mod edit -replace MOD=PATH_TO_MOD`
+## Syntax
 ### Default values
 
 **Option 1:** The caller chooses to use default values
@@ -81,6 +87,3 @@ func Concat4(args ...interface{}) string {
 }
 ```
 
-### inspect build app 
-
-`go tool nm ./main | grep XXX`
