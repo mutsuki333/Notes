@@ -13,7 +13,7 @@
     "bulma": "^0.9.0",
     "core-js": "^3.6.5",
     "moment": "^2.27.0",
-    "pug": "^3.0.0",
+    "pug": "^3.0.1",
     "pug-plain-loader": "^1.0.0",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
